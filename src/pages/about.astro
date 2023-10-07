@@ -1,7 +1,6 @@
 ---
 import '../styles/global.css';
-import Navigation from '../components/Navigate.astro';
-import Footer from '../components/Footer.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageTitle = 'About Me';
 
@@ -22,14 +21,7 @@ const skillColor = 'navy';
 const fontWeight = 'bold';
 const textCase = 'uppercase';
 ---
-
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
+<BaseLayout pageTitle={pageTitle}>
     <style define:vars={{skillColor, fontWeight, textCase}}>
       h1 {
         color: purple;
@@ -41,10 +33,6 @@ const textCase = 'uppercase';
         text-transform: var(--textCase);
       }
     </style>
-  </head>
-  <body>
-    <Navigation />
-    <h1>{pageTitle}</h1>
     <h2>... and my new Astro site!</h2>
 
     <p>
@@ -87,6 +75,4 @@ const textCase = 'uppercase';
         <p>My goal is not 3 days.</p>
       )
     }
-	  <Footer />
-  </body>
-</html>
+</BaseLayout>
